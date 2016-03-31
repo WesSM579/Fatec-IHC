@@ -16,6 +16,7 @@ var markersData = [
       nome: "1",
       morada1:"Rua Diogo Cão, 125",
       morada2: "Praia da Barra",
+      icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png', //blue
       codPostal: "3830-772 Gafanha da Nazaré" // não colocar virgula no último item de cada marcador
    },
    {
@@ -25,6 +26,7 @@ var markersData = [
       nome: "2",
       morada1:"Quinta dos Patos, n.º 2",
       morada2: "Praia da Costa Nova",
+      icon: 'http://maps.google.com/mapfiles/ms/icons/purple-dot.png', 
       codPostal: "3830-453 Gafanha da Encarnação" // não colocar virgula no último item de cada maracdor
    },
    
@@ -34,6 +36,7 @@ var markersData = [
       nome: "3",
       morada1:"Rua dos Balneários do Complexo Desportivo",
       morada2: "Gafanha da Nazaré",
+      icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png', // yellow
       codPostal: "3830-225 Gafanha da Nazaré" // não colocar virgula no último item de cada maracdor
    }, // não colocar vírgula no último marcador
 
@@ -44,7 +47,7 @@ var markersData = [
       nome: "4",
       morada1:"Rua dos o",
       morada2: "è",
-      color: 'blue',
+      icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png', //green
        size: 'small',
       codPostal: "123456" // não colocar virgula no último item de cada maracdor
    } // não colocar vírgula no último marcador
@@ -92,8 +95,9 @@ function displayMarkers(){
       var morada1 = markersData[i].morada1;
       var morada2 = markersData[i].morada2;
       var codPostal = markersData[i].codPostal;
+      var icon = markersData[i].icon;
 
-      createMarker(latlng, nome, morada1, morada2, codPostal);
+      createMarker(latlng, nome, morada1, morada2, codPostal, icon);
 
       // Os valores de latitude e longitude do marcador são adicionados à
       // variável bounds
@@ -107,11 +111,12 @@ function displayMarkers(){
 }
 
 // Função que cria os marcadores e define o conteúdo de cada Info Window.
-function createMarker(latlng, nome, morada1, morada2, codPostal){
+function createMarker(latlng, nome, morada1, morada2, codPostal, icon){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
-      title: nome
+      title: nome,
+      icon: icon
    });
 
    // Evento que dá instrução à API para estar alerta ao click no marcador.
